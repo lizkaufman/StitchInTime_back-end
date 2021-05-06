@@ -14,6 +14,7 @@ namespace Stitch_BackEnd
         public static void Main(string[] args)
         {
             // CreateHostBuilder(args).Build().Run();
+            // NOTE: Line above is original version; below is copied and pasted from user secrets page in MS docs
             var host = new HostBuilder()
             .ConfigureAppConfiguration((hostContext, builder) =>
             {

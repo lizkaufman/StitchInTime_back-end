@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Stitch_BackEnd
 {
@@ -16,33 +17,33 @@ namespace Stitch_BackEnd
         }
 
         [HttpGet]
-        public IEnumerable<User> GetAllUsers()
+        public async Task<IEnumerable<User>> GetAllUsers()
         {
-            return _userRepository.GetAllUsers();
+            return await _userRepository.GetAllUsers();
         }
         [HttpGet("{id}")]
-        public User GetUser(int id)
+        public async Task<User> GetUser(int id)
         {
-            return _userRepository.GetUser(id);
+            return await _userRepository.GetUser(id);
         }
 
         [HttpPost]
-        public User PostUser([FromBody] User user)
+        public async Task<User> PostUser([FromBody] User user)
         {
-            return _userRepository.CreateUser(user);
+            return await _userRepository.CreateUser(user);
         }
 
         [HttpPut("{id}")]
-        public User UpdateUser(int id, [FromBody] User user)
+        public async Task<User> UpdateUser(int id, [FromBody] User user)
         {
             user.Id = id;
-            return _userRepository.UpdateUser(user);
+            return await _userRepository.UpdateUser(user);
         }
 
         [HttpDelete("{id}")]
-        public string DeleteUser(int id)
+        public async Task<User> DeleteUser(int id)
         {
-            return _userRepository.DeleteUser(id);
+            return await _userRepository.DeleteUser(id);
         }
     }
 }

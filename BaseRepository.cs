@@ -10,7 +10,6 @@ namespace Stitch_BackEnd
         private NpgsqlConnection SqlConnection()
         {
             // This builds a connection string from our separate credentials
-            // FIXME: Fix TO USER SECRETS!!!
             var stringBuilder = new NpgsqlConnectionStringBuilder
             {
                 Host = _config["pgHost"],
