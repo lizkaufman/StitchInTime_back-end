@@ -1,1 +1,1 @@
-FIXME: Use Ben's library example to reconfigure SQL statements into object!# StitchInTime_back-end
+Back end for https://github.com/lizkaufman/StitchInTime
