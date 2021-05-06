@@ -1,22 +1,30 @@
 using System;
 using Npgsql;
 using System.Data;
+using Microsoft.Extensions.Configuration;
 
 namespace Stitch_BackEnd
 {
     public class BaseRepository
     {
+        IConfiguration _configuration;
+
+        public BaseRepository(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         // Generate new connection based on connection string
         private NpgsqlConnection SqlConnection()
         {
             // This builds a connection string from our separate credentials
             var stringBuilder = new NpgsqlConnectionStringBuilder
             {
-                Host = _config["pgHost"],
-                Database = _config["pgDatabase"],
-                Username = _config["pgUsername"],
-                Password = _config["pgPassword"],
-                Port = _config["pgPort"],
+                Host = _configuration["pgHost"],
+                Database = _configuration["pgDatabase"],
+                Username = _configuration["pgUsername"],
+                Password = _configuration["pgPassword"],
+                Port = int.Parse(_configuration["pgPort"]),
                 SslMode = Npgsql.SslMode.Require, // Heroku Specific Setting
                 TrustServerCertificate = true // Heroku Specific Setting
             };
