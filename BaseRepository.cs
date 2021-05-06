@@ -16,7 +16,7 @@ namespace Stitch_BackEnd
                 Database = _config["pgDatabase"],
                 Username = _config["pgUsername"],
                 Password = _config["pgPassword"],
-                Port = 5432,
+                Port = _config["pgPort"],
                 SslMode = Npgsql.SslMode.Require, // Heroku Specific Setting
                 TrustServerCertificate = true // Heroku Specific Setting
             };
